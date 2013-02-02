@@ -7,6 +7,7 @@ gem 'haml-rails'
 gem 'activeadmin'
 gem 'sass-rails',   '~> 3.2.3'
 gem 'meta_search', '>= 1.1.0.pre'
+gem 'web-app-theme', :git => 'git://github.com/pilu/web-app-theme.git'
 
 group :assets do
   gem 'coffee-rails', '~> 3.2.1'

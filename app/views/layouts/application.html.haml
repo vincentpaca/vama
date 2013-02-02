@@ -1,12 +1,29 @@
 !!!
 %html
   %head
-    %title VAMA Motors
-    = stylesheet_link_tag    "application", :media => "all"
+    %title Web App
+    = stylesheet_link_tag "application"
     = javascript_include_tag "application"
-    = csrf_meta_tags
+    = csrf_meta_tag
   %body
-    %p.alert= alert
-    %p.notice= notice
+    #container
+      #header
+        %h1= link_to "VAMA Motors", root_url
 
-    = yield
+        = render 'shared/user_nav'
+
+        = render 'shared/main_nav'
+
+      #wrapper.wat-cf
+        .flash
+          - flash.each do |type, message|
+            %div{:class => "message #{type}"}
+              %p= message
+        #main
+          = yield
+          #footer
+            .block
+              %p
+                Copyright © #{Time.now.year} VAMA Motors.
+        #sidebar
+          = yield :sidebar

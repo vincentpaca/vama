@@ -1,0 +1,12 @@
+#user-navigation
+  %ul.wat-cf
+    - if current_user
+      %li
+        %a{:href => "#"}= t("web-app-theme.profile", :default => "Profile")
+      %li
+        %a{:href => "#"}= t("web-app-theme.settings", :default => "Settings")
+      %li
+        %a.logout{:href => "/logout"}= t("web-app-theme.logout", :default => "Logout")
+    - else
+      %li= link_to "Sign in", "/users/sign_in"
+      %li= link_to "Sign up", "/users/sign_up"
