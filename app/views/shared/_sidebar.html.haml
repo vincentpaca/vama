@@ -1,5 +1,6 @@
 .block
   %h3 Products
   %ul.navigation
+    %li= link_to "All Products", "/products"
     - Category.all.each do |c|
       %li= link_to c.name, "/products/?model=#{c.id}"
