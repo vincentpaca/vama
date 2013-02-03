@@ -8,10 +8,10 @@
   %body
     #container
       #header
-        - if current_user
-          %h1= link_to "VAMA Motors", "/dashboard"
-        - else
+        - unless current_user
           %h1= link_to "VAMA Motors", root_url
+        - else
+          %h1= link_to "VAMA Dashboard"
 
         = render 'shared/user_nav'
 

@@ -2,17 +2,17 @@
   %ul.wat-cf
     - if current_user
       %li{ :class => "#{current_page?(:controller => '/dashboard') ? 'active' : '' } first" }
-        = link_to "Dashboard", "/dashboard"
+        = link_to "Back to Dashboard", "/dashboard"
     - else
       %li{ :class => "#{current_page?(:controller => '/home') ? 'active' : '' } first" }
         = link_to "Home", root_url
-    %li{ :class => "#{current_page?(:controller => '/home', :action => 'company_profile') ? 'active' : '' } first" }
-      = link_to "Company Profile", "/company_profile"
-    %li{ :class => "#{current_page?(:controller => '/home', :action => 'show_room') ? 'active' : '' } first" }
-      = link_to "Showroom", "/show_room"
-    %li{ :class => "#{current_page?(:controller => '/home', :action => 'service_center') ? 'active' : '' } first" }
-      = link_to "Service Center", "/service_center"
-    %li{ :class => "#{current_page?(:controller => '/home', :action => 'faq') ? 'active' : '' } first" }
-      = link_to "FAQ", "/faq"
-    %li{ :class => "#{current_page?(:controller => '/home', :action => 'contact_us') ? 'active' : '' } first" }
-      = link_to "Contact us", "/contact_us"
+      %li{ :class => "#{current_page?(:controller => '/home', :action => 'company_profile') ? 'active' : '' } first" }
+        = link_to "Company Profile", "/company_profile"
+      %li{ :class => "#{current_page?(:controller => '/home', :action => 'show_room') ? 'active' : '' } first" }
+        = link_to "Showroom", "/show_room"
+      %li{ :class => "#{current_page?(:controller => '/home', :action => 'service_center') ? 'active' : '' } first" }
+        = link_to "Service Center", "/service_center"
+      %li{ :class => "#{current_page?(:controller => '/home', :action => 'faq') ? 'active' : '' } first" }
+        = link_to "FAQ", "/faq"
+      %li{ :class => "#{current_page?(:controller => '/home', :action => 'contact_us') ? 'active' : '' } first" }
+        = link_to "Contact us", "/contact_us"

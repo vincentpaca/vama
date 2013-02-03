@@ -1,6 +1,7 @@
 #user-navigation
   %ul.wat-cf
     - if current_user
+      %li= link_to "Welcome #{current_user.name}!", "#"
       %li= link_to "Profile", edit_profile_path(current_user.profile)
       %li= link_to "Logout", destroy_user_session_path, :method => :delete, :class => "logout"
     - else

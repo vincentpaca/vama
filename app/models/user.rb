@@ -13,6 +13,18 @@ class User < ActiveRecord::Base
 
   after_create :build_profile
 
+  def name
+    if self.profile
+      if self.profile.full_name.present?
+        self.profile.full_name.split(" ").first
+      else
+        self.email.split("@").first
+      end
+    else
+      self.email.split("@").first
+    end
+  end
+
   private
 
   def build_profile
