@@ -17,7 +17,7 @@ class User < ActiveRecord::Base
   def name
     if self.profile
       if self.profile.full_name.present?
-        self.profile.full_name.split(" ").first
+        self.profile.full_name
       else
         self.email.split("@").first
       end
