@@ -1,0 +1,33 @@
+%h3 Requirements List
+.group
+  %strong You already have the ff:
+  %ul
+    - if @reservation.info_sheet.present?
+      %li= link_to "Information Sheet", @reservation.info_sheet.url(:download => true)
+    - if @reservation.deposit_slip.present?
+      %li= link_to "Deposit Slip", @reservation.deposit_slip.url(:download => true)
+    - if @reservation.ids.present?
+      %li= link_to "Valid IDs", @reservation.ids.url(:download => true)
+    - if @reservation.photo.present?
+      %li= link_to "2x2 Picture", @reservation.photo.url(:download => true)
+    - if @reservation.proof_income.present?
+      %li= link_to "Proof of Income", @reservation.proof_income.url(:download => true)
+    - if @reservation.dti.present?
+      %li= link_to "Business Permit", @reservation.dti.url(:download => true)
+%br/
+.group
+  %strong You are still missing:
+  %ul
+    - unless @reservation.info_sheet.present?
+      %li Information Sheet
+    - unless @reservation.deposit_slip.present?
+      %li Deposit Slip
+    - unless @reservation.ids.present?
+      %li Valid IDs
+    - unless @reservation.photo.present?
+      %li 2x2 Picture
+    - unless @reservation.proof_income.present?
+      %li Proof of Income
+    - unless @reservation.dti.present?
+      %li Business Permit (if self employed only)
+

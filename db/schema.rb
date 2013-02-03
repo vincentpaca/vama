@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130203110000) do
+ActiveRecord::Schema.define(:version => 20130203134123) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.string   "resource_id",   :null => false
@@ -77,13 +77,33 @@ ActiveRecord::Schema.define(:version => 20130203110000) do
   create_table "reservations", :force => true do |t|
     t.integer  "user_id"
     t.integer  "product_id"
-    t.datetime "created_at",                            :null => false
-    t.datetime "updated_at",                            :null => false
-    t.boolean  "approved",           :default => false
+    t.datetime "created_at",                                   :null => false
+    t.datetime "updated_at",                                   :null => false
+    t.boolean  "approved",                  :default => false
     t.string   "photo_file_name"
     t.string   "photo_content_type"
     t.integer  "photo_file_size"
     t.datetime "photo_updated_at"
+    t.string   "info_sheet_file_name"
+    t.string   "info_sheet_content_type"
+    t.integer  "info_sheet_file_size"
+    t.datetime "info_sheet_updated_at"
+    t.string   "deposit_slip_file_name"
+    t.string   "deposit_slip_content_type"
+    t.integer  "deposit_slip_file_size"
+    t.datetime "deposit_slip_updated_at"
+    t.string   "ids_file_name"
+    t.string   "ids_content_type"
+    t.integer  "ids_file_size"
+    t.datetime "ids_updated_at"
+    t.string   "proof_income_file_name"
+    t.string   "proof_income_content_type"
+    t.integer  "proof_income_file_size"
+    t.datetime "proof_income_updated_at"
+    t.string   "dti_file_name"
+    t.string   "dti_content_type"
+    t.integer  "dti_file_size"
+    t.datetime "dti_updated_at"
   end
 
   create_table "users", :force => true do |t|
