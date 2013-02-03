@@ -47,9 +47,11 @@ test:
   password: passw0rd
 
 production:
+  host: ec2-54-243-182-70.compute-1.amazonaws.com
+  port: 5432
   adapter: postgresql
   encoding: unicode
-  database: vama_production
+  database: db2mlav3kca65q
   pool: 5
-  username: vama
-  password:
+  username: qyareonnqzihqy
+  password: QQioVVVbr05wyS3thrSDJq1mLF
