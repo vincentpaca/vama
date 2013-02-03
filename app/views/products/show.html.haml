@@ -1,0 +1,35 @@
+.block
+  .content
+    %h2.title= @product.name
+    .inner
+      %span
+        = link_to "Reserve this Bike" 
+        | 
+        = link_to "See on Facebook", @product.facebook_album_link, :target => "_blank"
+
+      %div
+        %p{ :style => "float:left;" }
+          = image_tag @product.facebook_link, :style =>  "width: 600px"
+        %p{ :style => "float:left; margin-left: 10px;" }
+          %strong= @product.name
+          %br/
+          %br/
+          %strong Make:
+          = @product.category.name
+          %br/
+          %strong Model:
+          = @product.model
+          %br/
+          %strong Power:
+          = @product.power
+          %br/
+          %strong Engine:
+          = @product.engine
+          %br/
+          %strong Cylinders:
+          = @product.cylinders
+
+      %div{ :style => "clear:both;" }
+
+
+
