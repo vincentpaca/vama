@@ -18,6 +18,10 @@ class ProfilesController < DashboardController
     end
   end
 
+  def update
+
+  end
+
   protected
 
   def check_ownership
