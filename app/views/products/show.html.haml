@@ -3,7 +3,7 @@
     %h2.title= @product.name
     .inner
       %span
-        = link_to "Reserve this Bike" 
+        = link_to "Reserve this Bike", "/reservations/new?p=#{@product.id}"
         | 
         = link_to "See on Facebook", @product.facebook_album_link, :target => "_blank"
 

@@ -2,6 +2,7 @@ class Product < ActiveRecord::Base
   attr_accessible :category_id, :cylinders, :engine, :facebook_link, :model, :power, :facebook_album_link, :reserved
 
   belongs_to :category
+  has_many :reservations
 
   def name
     "#{self.category.name} #{self.model}"

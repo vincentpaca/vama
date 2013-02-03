@@ -2,6 +2,7 @@ Vama::Application.routes.draw do
   resources :dashboard
   resources :profiles
   resources :products
+  resources :reservations
 
   get :company_profile, :controller => :home, :action => :company_profile
   get :show_room, :controller => :home, :action => :show_room
