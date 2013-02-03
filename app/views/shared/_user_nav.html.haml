@@ -3,10 +3,7 @@
     - if current_user
       %li
         %a{:href => "#"}= t("web-app-theme.profile", :default => "Profile")
-      %li
-        %a{:href => "#"}= t("web-app-theme.settings", :default => "Settings")
-      %li
-        %a.logout{:href => "/logout"}= t("web-app-theme.logout", :default => "Logout")
+      %li= link_to "Logout", destroy_user_session_path, :method => :delete, :class => "logout"
     - else
       %li= link_to "Sign in", "/users/sign_in"
       %li= link_to "Sign up", "/users/sign_up"
