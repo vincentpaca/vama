@@ -19,7 +19,17 @@ class ProfilesController < DashboardController
   end
 
   def update
+    @profile = current_user.profile
 
+    respond_to do |format|
+      if @profile.update_attributes(params[:profile])
+        format.html { redirect_to edit_profile_path(@profile), :notice => "Successfully updated profile!" }
+        format.js { head :no_content }
+      else
+        format.html { render :action => "edit" }
+        format.js { render :json => @profile.errors, :status => :unprocessable_entity }
+      end
+    end
   end
 
   protected
