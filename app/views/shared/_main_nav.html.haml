@@ -1,4 +1,5 @@
 #main-navigation
   %ul.wat-cf
-    %li= link_to "Home", root_url
+    %li{ :class => "#{current_page?(:controller => 'home') ? 'active' : '' } first" }
+      = link_to "Home", root_url
     %li= link_to "Products", root_url
