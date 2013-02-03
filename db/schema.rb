@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130203045458) do
+ActiveRecord::Schema.define(:version => 20130203051642) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.string   "resource_id",   :null => false
@@ -60,9 +60,10 @@ ActiveRecord::Schema.define(:version => 20130203045458) do
     t.string   "engine"
     t.string   "cylinders"
     t.string   "facebook_link"
-    t.datetime "created_at",          :null => false
-    t.datetime "updated_at",          :null => false
+    t.datetime "created_at",                             :null => false
+    t.datetime "updated_at",                             :null => false
     t.string   "facebook_album_link"
+    t.boolean  "reserved",            :default => false
   end
 
   create_table "profiles", :force => true do |t|
