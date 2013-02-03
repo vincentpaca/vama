@@ -61,6 +61,6 @@ module Vama
 
     config.assets.initialize_on_precompile = false
 
-    config.assets.precompile += %w( active_admin.js active_admin.css.scss print.css )
+    config.assets.precompile += %w( active_admin.js active_admin.css print.css )
   end
 end
