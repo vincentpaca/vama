@@ -5,15 +5,17 @@
       %table.table
         %tbody
           %tr
-            %th.first Unit
+            %th.first &nbsp;
+            %th Unit
             %th Date Reserved
             %th Status
             %th.last &nbsp;
 
           - @reservations.each_with_index do |r, i|
             %tr{ :style => "#{ i.odd? ? "odd" : "even" }" }
-              %td= r.product.name
+              %td &nbsp;
+              %td= link_to r.product.name, product_path(r.product)
               %td= r.created_at.strftime("%b %d, %Y")
               %td= r.status
               %td.last
-                = link_to "Edit", edit_reservation_path(r)
+                = link_to "Edit Reservation", edit_reservation_path(r)
