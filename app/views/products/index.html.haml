@@ -1,0 +1,25 @@
+.block
+  .content
+    %h2= @title
+
+    .inner
+      %ul.list
+        - @products.each do |p|
+          %li
+            .left
+              = link_to product_path(p) do
+                = image_tag(p.facebook_link, :width => "100px")
+            .item{ :style => "margin-left: 110px" }
+              %p
+                .left
+                  %strong Product Name:
+                  %br/
+                  %strong Power:
+                  %br/
+                  %br/
+                  = link_to "View more details", product_path(p)
+                .right
+                  = p.name
+                  %br/
+                  = p.power
+                %div{ :style => "clear:both" }

@@ -2,4 +2,4 @@
   %h3 Products
   %ul.navigation
     - @categories.each do |c|
-      %li= link_to c.name, ""
+      %li= link_to c.name, "/products/?model=#{c.id}"
