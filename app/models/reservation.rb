@@ -1,5 +1,5 @@
 class Reservation < ActiveRecord::Base
-  attr_accessible :product_id, :user_id, :photo, :info_sheet, :deposit_slip, :ids, :proof_income, :dti
+  attr_accessible :product_id, :user_id, :photo, :info_sheet, :deposit_slip, :ids, :proof_income, :dti, :approved
 
   has_attached_file :photo,
                     :storage => :dropbox,
@@ -45,4 +45,8 @@ class Reservation < ActiveRecord::Base
 
   belongs_to :user
   belongs_to :product
+
+  def status
+    approved ? "Approved" : "Pending"
+  end
 end

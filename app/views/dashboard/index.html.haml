@@ -1,1 +1,19 @@
-DASHBOARD
+.block
+  .content
+    %h2 Your Reservations
+    .inner
+      %table.table
+        %tbody
+          %tr
+            %th.first Unit
+            %th Date Reserved
+            %th Status
+            %th.last &nbsp;
+
+          - @reservations.each_with_index do |r, i|
+            %tr{ :style => "#{ i.odd? ? "odd" : "even" }" }
+              %td= r.product.name
+              %td= r.created_at.strftime("%b %d, %Y")
+              %td= r.status
+              %td.last
+                = link_to "Edit", edit_reservation_path(r)
