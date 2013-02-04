@@ -3,5 +3,6 @@ class DashboardController < ApplicationController
 
   def index
     @reservations = current_user.reservations
+    @purchases = current_user.purchases
   end
 end

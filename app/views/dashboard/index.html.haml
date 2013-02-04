@@ -1,3 +1,26 @@
+- if current_user.purchases.any?
+  .block
+    .content
+      %h2 Your Purchases
+      .inner
+        %table.table
+          %tbody
+            %tr
+              %th.first &nbsp;
+              %th Unit
+              %th Date Reserved
+              %th Balance
+              %th.last &nbsp;
+
+            - @purchases.each_with_index do |r, i|
+              %tr{ :style => "#{ i.odd? ? "odd" : "even" }" }
+                %td &nbsp;
+                %td= link_to r.product.name, product_path(r.product)
+                %td= r.created_at.strftime("%b %d, %Y")
+                %td= "#{r.balance} PHP"
+                %td.last
+                  = link_to "More Details", edit_reservation_path(r)
+
 .block
   .content
     %h2 Your Reservations
