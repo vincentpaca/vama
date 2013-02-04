@@ -46,6 +46,10 @@ class Reservation < ActiveRecord::Base
   belongs_to :user
   belongs_to :product
 
+  def name
+    "#{self.user.name} - #{self.product.name}"
+  end
+
   def status
     approved ? "Approved" : "Pending"
   end
