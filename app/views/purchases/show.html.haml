@@ -1,0 +1,30 @@
+.block
+  .content
+    %h2= "Purchase Document for #{@purchase.product.name}"
+    .inner
+      %p
+        %strong Current Balance:
+        = "#{@purchase.balance} PHP"
+        %br/
+        %strong Monthly Amortization:
+        = "#{@purchase.monthly_amortization} PHP"
+        %br/
+        %strong Downpayment
+        = "#{@purchase.down_payment} PHP"
+        %br/
+        %strong Terms
+        = "#{@purchase.term_in_months} Months"
+      %table.table
+        %tbody
+          %tr
+            %th.first &nbsp;
+            %th Date Reserved
+            %th Amount
+            %th.last &nbsp;
+
+          - @payments.each_with_index do |r, i|
+            %tr{ :style => "#{ i.odd? ? "odd" : "even" }" }
+              %td &nbsp;
+              %td= r.created_at.strftime("%b %d, %Y")
+              %td= "#{r.amount} PHP"
+              %td.last &nbsp;

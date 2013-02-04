@@ -19,7 +19,7 @@
                 %td= r.created_at.strftime("%b %d, %Y")
                 %td= "#{r.balance} PHP"
                 %td.last
-                  = link_to "More Details", edit_reservation_path(r)
+                  = link_to "More Details", purchase_path(r)
 
 .block
   .content
