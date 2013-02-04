@@ -11,6 +11,12 @@ class Purchase < ActiveRecord::Base
   after_create :reserve_product
   after_create :update_reservation
 
+  has_many :payments
+
+  def name
+    "#{self.user.name} - #{self.product.name}"
+  end
+
   private
 
   def compute_fees
