@@ -11,6 +11,7 @@ class User < ActiveRecord::Base
 
   has_one :profile
   has_many :reservations
+  has_many :purchases
 
   after_create :build_profile
 
