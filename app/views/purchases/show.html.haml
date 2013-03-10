@@ -14,6 +14,8 @@
         %br/
         %strong Terms
         = "#{@purchase.term_in_months} Months"
+        %br/
+        = link_to "Download CSV", "/purchases/#{@purchase.id}/export_to_csv"
       %table.table
         %tbody
           %tr

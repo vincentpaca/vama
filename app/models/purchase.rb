@@ -17,6 +17,17 @@ class Purchase < ActiveRecord::Base
     "#{self.user.name} - #{self.product.name}"
   end
 
+  def payments_to_csv
+    column_names = Payment.column_names
+    all = self.payments
+    CSV.generate do |csv|
+      csv << column_names
+      all.each do |payment|
+        csv << payment.attributes.values_at(*column_names)
+      end
+    end
+  end
+
   private
 
   def compute_fees
