@@ -1,7 +1,7 @@
 ActiveAdmin.register Reservation do
   config.per_page = 10
   config.clear_action_items!
-  actions :all, :except => [ :edit ]
+  actions :all, :except => [ :edit, :destroy ]
 
   index do
     column :product
@@ -9,7 +9,7 @@ ActiveAdmin.register Reservation do
     column :created_at
     column :approved
     column "Approval Action" do |r|
-      link_to r.approved ? "Revoke" : "Approve", "/admin/reservations/#{r.id}/reverse_reservation", :method => "POST"
+      link_to r.approved ? "Revoke" : "Approve", "/admin/reservations/#{r.id}/reverse_reservation", :method => "POST", :confirm => "Are you sure you want to change the reservation?"
     end
     default_actions
   end
