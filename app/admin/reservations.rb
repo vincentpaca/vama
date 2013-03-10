@@ -1,5 +1,6 @@
 ActiveAdmin.register Reservation do
   config.per_page = 10
+  config.clear_action_items!
 
   index do
     column :product
@@ -7,6 +8,13 @@ ActiveAdmin.register Reservation do
     column :created_at
     column :approved
     default_actions
+  end
+
+  form do |f|
+    f.inputs "Label" do
+      f.input :approved
+    end
+    f.actions
   end
 
   show do |r|
