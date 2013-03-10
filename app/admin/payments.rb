@@ -5,7 +5,9 @@ ActiveAdmin.register Payment do
 
   index do
     column :purchase
-    column :amount
+    column :amount do |a|
+      number_to_currency(a.amount, :delimiter => ",", :unit => "Php")
+    end
     column :created_at
     default_actions
   end

@@ -5,7 +5,9 @@ ActiveAdmin.register Purchase do
     column :user
     column :product
     column :reservation
-    column :contract_amount
+    column :contract_amount do |c|
+      number_to_currency(c.contract_amount, :delimiter => ",", :unit => "Php")
+    end
     default_actions
   end
 end
