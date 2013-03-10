@@ -26,5 +26,5 @@
             %tr{ :style => "#{ i.odd? ? "odd" : "even" }" }
               %td &nbsp;
               %td= r.created_at.strftime("%b %d, %Y")
-              %td= "#{r.amount} PHP"
+              %td= number_to_currency(r.amount, :delimiter => ",", :unit => "PhP")
               %td.last &nbsp;

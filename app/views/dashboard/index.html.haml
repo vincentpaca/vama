@@ -17,7 +17,7 @@
                 %td &nbsp;
                 %td= link_to r.product.name, product_path(r.product)
                 %td= r.created_at.strftime("%b %d, %Y")
-                %td= "#{r.balance} PHP"
+                %td= number_to_currency(r.balance, :delimiter => ",", :unit => "Php")
                 %td.last
                   = link_to "More Details", purchase_path(r)
 
