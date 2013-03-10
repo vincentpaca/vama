@@ -53,4 +53,12 @@ class Reservation < ActiveRecord::Base
   def status
     approved ? "Approved" : "Pending"
   end
+
+  def reverse_reservation!
+    if self.update_attribute(:approved, !self.approved)
+      self.product.update_attribute(:reserved, self.approved)
+    else
+      false
+    end
+  end
 end

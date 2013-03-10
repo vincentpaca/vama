@@ -1,14 +1,30 @@
 ActiveAdmin.register Reservation do
   config.per_page = 10
   config.clear_action_items!
+  actions :all, :except => [ :edit ]
 
   index do
     column :product
     column :user
     column :created_at
     column :approved
+    column "Approval Action" do |r|
+      link_to r.approved ? "Revoke" : "Approve", "/admin/reservations/#{r.id}/reverse_reservation", :method => "POST"
+    end
     default_actions
   end
+
+  member_action :reverse_reservation, :method => :post do
+    @reservation = Reservation.find(params[:id])
+    if @reservation.reverse_reservation!
+      flash[:notice] = "Reservation successfully changed!"
+      redirect_to "/admin/reservations"
+    else
+      flash[:alert] = "Your request cannot be processed right now"
+      redirect_to "/admin/reservations"
+    end
+  end
+
 
   form do |f|
     f.inputs "Label" do
