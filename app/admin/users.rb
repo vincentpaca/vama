@@ -9,6 +9,11 @@ ActiveAdmin.register User do
     default_actions
   end
 
+  member_action :export_payments, :method => :get do
+    @user = User.find(params[:id])
+    send_data @user.payments_csv
+  end
+
   show do |user|
     attributes_table do
       row :name
@@ -36,6 +41,9 @@ ActiveAdmin.register User do
         end
         column "Actions" do |payment|
           link_to "View Payment Details", admin_payment_path(payment)
+        end
+        column "Export to" do |payment|
+          link_to "CSV", "/admin/users/#{user.id}/export_payments"
         end
       end
     end

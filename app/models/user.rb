@@ -28,6 +28,17 @@ class User < ActiveRecord::Base
     end
   end
 
+  def payments_csv
+    column_names = Payment.column_names
+    all = self.payments
+    CSV.generate do |csv|
+      csv << column_names
+      all.each do |payment|
+        csv << payment.attributes.values_at(*column_names)
+      end
+    end
+  end
+
   private
 
   def build_profile
