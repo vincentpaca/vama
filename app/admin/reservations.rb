@@ -1,4 +1,6 @@
 ActiveAdmin.register Reservation do
+  config.per_page = 10
+
   index do
     column :product
     column :user
