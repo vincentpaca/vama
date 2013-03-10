@@ -25,9 +25,6 @@ ActiveAdmin.register User do
 
     panel "Payment History" do
       table_for(user.payments) do
-        column "ID" do |payment|
-          payment.id
-        end
         column "Purchase" do |payment|
           link_to payment.purchase.name, admin_purchase_path(payment.purchase)
         end
